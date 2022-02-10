@@ -18,12 +18,12 @@
 		738F56BC27ABBDC000329B1E /* FlexLayoutTutorialUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56BB27ABBDC000329B1E /* FlexLayoutTutorialUITestsLaunchTests.swift */; };
 		738F56CB27ABC01700329B1E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56CA27ABC01700329B1E /* MainViewController.swift */; };
 		738F56CD27ABC11C00329B1E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56CC27ABC11C00329B1E /* BaseViewController.swift */; };
-		738F56D027ABC21E00329B1E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56CF27ABC21E00329B1E /* MainView.swift */; };
 		738F56D427ABCA0400329B1E /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56D327ABCA0400329B1E /* DemoView.swift */; };
-		738F56D627ABCDA700329B1E /* DJAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56D527ABCDA700329B1E /* DJAViewController.swift */; };
-		738F56D927ABCDD600329B1E /* DJAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56D827ABCDD600329B1E /* DJAView.swift */; };
+		738F56D927ABCDD600329B1E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56D827ABCDD600329B1E /* MainView.swift */; };
 		738F56DB27ABEFD500329B1E /* SwitchOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F56DA27ABEFD500329B1E /* SwitchOptionView.swift */; };
 		839C6EC8DF9E4C1C1CE1F61E /* Pods_FlexLayoutTutorial_FlexLayoutTutorialUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1895D21D7DDAB5C0D53A33 /* Pods_FlexLayoutTutorial_FlexLayoutTutorialUITests.framework */; };
+		A2D8AE9C27B3A49B0056190D /* StepperOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D8AE9B27B3A49B0056190D /* StepperOptionView.swift */; };
+		A2DCC0CA27B395D5002BA258 /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCC0C927B395D5002BA258 /* PropertyView.swift */; };
 		D2C81CA616655DAB94E3ADF8 /* Pods_FlexLayoutTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7302AA82C616AAA688E007 /* Pods_FlexLayoutTutorial.framework */; };
 		E1157ED6F4B9DDAFDF839630 /* Pods_FlexLayoutTutorialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABABCA9C31A2E016F6DE68CE /* Pods_FlexLayoutTutorialTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,13 +66,13 @@
 		738F56BB27ABBDC000329B1E /* FlexLayoutTutorialUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexLayoutTutorialUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		738F56CA27ABC01700329B1E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		738F56CC27ABC11C00329B1E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		738F56CF27ABC21E00329B1E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		738F56D327ABCA0400329B1E /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
-		738F56D527ABCDA700329B1E /* DJAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJAViewController.swift; sourceTree = "<group>"; };
-		738F56D827ABCDD600329B1E /* DJAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJAView.swift; sourceTree = "<group>"; };
+		738F56D827ABCDD600329B1E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		738F56DA27ABEFD500329B1E /* SwitchOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchOptionView.swift; sourceTree = "<group>"; };
 		783817C664123A0BE7ACDD29 /* Pods-FlexLayoutTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlexLayoutTutorialTests.debug.xcconfig"; path = "Target Support Files/Pods-FlexLayoutTutorialTests/Pods-FlexLayoutTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F7302AA82C616AAA688E007 /* Pods_FlexLayoutTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlexLayoutTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2D8AE9B27B3A49B0056190D /* StepperOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperOptionView.swift; sourceTree = "<group>"; };
+		A2DCC0C927B395D5002BA258 /* PropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
 		ABABCA9C31A2E016F6DE68CE /* Pods_FlexLayoutTutorialTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlexLayoutTutorialTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FF4149B2435E6404256D07 /* Pods-FlexLayoutTutorialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlexLayoutTutorialTests.release.xcconfig"; path = "Target Support Files/Pods-FlexLayoutTutorialTests/Pods-FlexLayoutTutorialTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				738F56D227ABC9F500329B1E /* Common */,
-				738F56D727ABCDAD00329B1E /* Property */,
 				738F56CE27ABC1F800329B1E /* Main */,
 				738F56D127ABC5D900329B1E /* SupportFiles */,
 			);
@@ -169,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				738F56CA27ABC01700329B1E /* MainViewController.swift */,
-				738F56CF27ABC21E00329B1E /* MainView.swift */,
+				738F56D827ABCDD600329B1E /* MainView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -194,17 +193,10 @@
 				738F56CC27ABC11C00329B1E /* BaseViewController.swift */,
 				738F56D327ABCA0400329B1E /* DemoView.swift */,
 				738F56DA27ABEFD500329B1E /* SwitchOptionView.swift */,
+				A2D8AE9B27B3A49B0056190D /* StepperOptionView.swift */,
+				A2DCC0C927B395D5002BA258 /* PropertyView.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		738F56D727ABCDAD00329B1E /* Property */ = {
-			isa = PBXGroup;
-			children = (
-				738F56D527ABCDA700329B1E /* DJAViewController.swift */,
-				738F56D827ABCDD600329B1E /* DJAView.swift */,
-			);
-			path = Property;
 			sourceTree = "<group>";
 		};
 		83438DDE0E94E084F44EBECF /* Pods */ = {
@@ -459,14 +451,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				738F56D627ABCDA700329B1E /* DJAViewController.swift in Sources */,
 				738F56CD27ABC11C00329B1E /* BaseViewController.swift in Sources */,
-				738F56D027ABC21E00329B1E /* MainView.swift in Sources */,
 				738F569D27ABBDBE00329B1E /* ViewController.swift in Sources */,
+				A2DCC0CA27B395D5002BA258 /* PropertyView.swift in Sources */,
 				738F569927ABBDBE00329B1E /* AppDelegate.swift in Sources */,
+				A2D8AE9C27B3A49B0056190D /* StepperOptionView.swift in Sources */,
 				738F56DB27ABEFD500329B1E /* SwitchOptionView.swift in Sources */,
 				738F569B27ABBDBE00329B1E /* SceneDelegate.swift in Sources */,
-				738F56D927ABCDD600329B1E /* DJAView.swift in Sources */,
+				738F56D927ABCDD600329B1E /* MainView.swift in Sources */,
 				738F56CB27ABC01700329B1E /* MainViewController.swift in Sources */,
 				738F56D427ABCA0400329B1E /* DemoView.swift in Sources */,
 			);
@@ -656,6 +648,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,6 +678,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -83,9 +83,13 @@ final class SwitchOptionView: UIView {
     private let titleLabel: UILabel = .init().then {
         $0.font = .systemFont(ofSize: 14)
         $0.numberOfLines = 0
+        $0.textColor = .black
     }
     
-    fileprivate let segmentedControl: UISegmentedControl = .init()
+    fileprivate let segmentedControl: UISegmentedControl = .init().then {
+        $0.selectedSegmentTintColor = .white
+        $0.setTitleTextAttributes([.foregroundColor: UIColor.black], for: UIControl.State.normal)
+    }
     
     private func initSegmentedControl(_ switchOptions: [String], _ defaultIndex: Int) {
         switchOptions.enumerated().forEach {

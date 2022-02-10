@@ -20,15 +20,4 @@ final class MainViewController: BaseViewController<MainView> {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func loadView() {
-        super.loadView()
-        mainView.delegate = self
-    }
-}
-
-extension MainViewController: MainViewDelegate {
-    func didSelect(type: Menu) {
-        navigationController?.pushViewController(type.viewController, animated: true)
-    }
 }

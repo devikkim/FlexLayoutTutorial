@@ -1,8 +1,8 @@
 //
-//  DJAView.swift
+//  PropertyView.swift
 //  FlexLayoutTutorial
 //
-//  Created by InKwon Todd Kim on 2022/02/03.
+//  Created by todd.kim on 2022/02/09.
 //
 
 import UIKit
@@ -12,61 +12,66 @@ import Then
 import RxSwift
 import RxCocoa
 
-class DJAView: UIView {
-    init() {
+final class PropertyView: UIView {
+    init(demoView: DemoView) {
+        self.demoView = demoView
+        
         super.init(frame: .zero)
-        addSubview(containerView)
-        backgroundColor = .white
-        
-        containerView.flex
-            .padding(20)
-            .justifyContent(.spaceBetween)
-            .define { (flex) in
-                flex.addItem(demoView).width(100%).height(50%)
-                flex.addItem().define { (flex2) in
-                    let label = UILabel().then {
-                        $0.text = "Properties"
-                        $0.font = .boldSystemFont(ofSize: 17)
-                    }
-                    flex2.addItem(label)
-                    flex2.addItem().height(10)
-                    flex2.addItem(directionOption)
-                    flex2.addItem().height(10)
-                    flex2.addItem(justifyContentItemsOption)
-                    flex2.addItem().height(10)
-                    flex2.addItem(alignItemsOption)
-                    flex2.addItem().height(10)
-                }
+        addSubview(scrollView)
+        scrollView.addSubview(containerView)
+
+        containerView.flex.define { (flex) in
+            flex.addItem().height(10)
+            flex.addItem(itemOption)
+            flex.addItem().height(10)
+            flex.addItem(directionOption)
+            flex.addItem().height(10)
+            flex.addItem(justifyContentItemsOption)
+            flex.addItem().height(10)
+            flex.addItem(alignItemsOption)
+            flex.addItem().height(10)
+            flex.addItem(wrapItemsOption)
+            flex.addItem().height(10)
         }
-        
+
         bind()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        containerView.pin.all(pin.safeArea)
-        containerView.flex.layout()
+        scrollView.pin.all()
+        containerView.pin.horizontally().top()
+        containerView.flex.layout(mode: .adjustHeight)
+
+        scrollView.contentSize = containerView.frame.size
     }
 
-    private let containerView: UIView = .init(frame: .zero).then {
-        $0.backgroundColor = .white
-    }
-    
-    private let demoView: DemoView = .init()
-    
+    // MARK: - Private
+    private let scrollView: UIScrollView = .init()
+
+    private let containerView: UIView = .init()
+
+    private let demoView: DemoView
+
     private let disposeBag: DisposeBag = .init()
-    
+
     private let directionOption: SwitchOptionView = .init(option: .direction)
-    
+
     private let alignItemsOption: SwitchOptionView = .init(option: .alignItems)
-    
+
     private let justifyContentItemsOption: SwitchOptionView = .init(option: .justifyContent)
-    
+
+    private let wrapItemsOption: SwitchOptionView = .init(option: .wrap)
+
+    private let itemOption: StepperOptionView = .init(title: "item", defaultCount: 3)
+}
+
+// MARK: - Private Methods
+extension PropertyView {
     private func bind() {
         directionOption.rx.selectedOptionIndex
             .subscribe (onNext: { [weak self] index in
@@ -77,10 +82,10 @@ class DJAView: UIView {
                 case 3: direction = .rowReverse
                 default: direction = .column
                 }
-                
+
                 self?.demoView.update(direction: direction)
         }).disposed(by: disposeBag)
-        
+
         alignItemsOption.rx.selectedOptionIndex
             .subscribe (onNext: { [weak self] index in
                 let alignItem: Flex.AlignItems
@@ -91,10 +96,10 @@ class DJAView: UIView {
                 case 4: alignItem = .baseline
                 default: alignItem = .stretch
                 }
-                
+
                 self?.demoView.update(alignItems: alignItem)
         }).disposed(by: disposeBag)
-        
+
         justifyContentItemsOption.rx.selectedOptionIndex
             .subscribe (onNext: { [weak self] index in
                 let justifyContent: Flex.JustifyContent
@@ -106,9 +111,24 @@ class DJAView: UIView {
                 case 5: justifyContent = .spaceEvenly
                 default: justifyContent = .start
                 }
-                
+
                 self?.demoView.update(justifyContent: justifyContent)
         }).disposed(by: disposeBag)
-        
+
+        wrapItemsOption.rx.selectedOptionIndex
+            .subscribe (onNext: { [weak self] index in
+                let wrap: Flex.Wrap
+                switch index {
+                case 1: wrap = .wrap
+                case 2: wrap = .wrapReverse
+                default: wrap = .noWrap
+                }
+
+                self?.demoView.update(wrap: wrap)
+        }).disposed(by: disposeBag)
+
+        itemOption.rx.isIncrease.bind { [weak self] in
+            $0 ? self?.demoView.addItem() : self?.demoView.removeItem()
+        }.disposed(by: disposeBag)
     }
 }
