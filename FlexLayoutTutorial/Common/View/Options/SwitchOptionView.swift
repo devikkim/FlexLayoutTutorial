@@ -17,6 +17,8 @@ enum SwitchOption {
     case justifyContent
     case alignItems
     case wrap
+    case alignContent
+    case layoutDirection
 }
 
 final class SwitchOptionView: UIView {
@@ -28,7 +30,7 @@ final class SwitchOptionView: UIView {
         
         containerView.flex.direction(.column).justifyContent(.start)
             .define { (flex) in
-                flex.addItem(titleLabel)
+                flex.addItem(titleLabel).marginBottom(5)
                 flex.addItem(segmentedControl).grow(1).shrink(1)
             }
         
@@ -65,6 +67,18 @@ final class SwitchOptionView: UIView {
                 switchOptions: ["noWrap", "wrap", "wrapReverse"],
                 defaultIndex: 0
             )
+        case .alignContent:
+            self.init(
+                title: "alignContent",
+                switchOptions: ["start", "end", "center", "space\nbetween", "space\naround"],
+                defaultIndex: 0
+            )
+        case .layoutDirection:
+            self.init(
+                title: "layoutDirection",
+                switchOptions: ["inherit", "ltr", "rtl"],
+                defaultIndex: 0
+            )
         }
     }
     
@@ -78,10 +92,11 @@ final class SwitchOptionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private properties
     private let containerView: UIView = .init()
     
     private let titleLabel: UILabel = .init().then {
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = .boldSystemFont(ofSize: 14)
         $0.numberOfLines = 0
         $0.textColor = .black
     }
@@ -104,6 +119,7 @@ final class SwitchOptionView: UIView {
     
 }
 
+// MARK: - Rx Extension
 extension Reactive where Base: SwitchOptionView {
     var selectedOptionIndex: ControlProperty<Int> {
         base.segmentedControl.rx.selectedSegmentIndex

@@ -38,6 +38,7 @@ class DemoView: UIView {
 
     // MARK: - Private properties
     private var items: [UILabel] = []
+    
     private var containerView: UIView = .init(frame: .zero).then {
         $0.backgroundColor = .white
         $0.layer.borderWidth = 1
@@ -66,9 +67,19 @@ extension DemoView {
         containerView.flex.wrap(wrap).markDirty()
         layout()
     }
+    
+    func update(alignContent: Flex.AlignContent) {
+        containerView.flex.alignContent(alignContent).markDirty()
+        layout()
+    }
+    
+    func update(layoutDirection: Flex.LayoutDirection) {
+        containerView.flex.layoutDirection(layoutDirection).markDirty()
+        layout()
+    }
 
     func addItem() {
-        items.append(makeItem(item: "item\(items.count + 1)"))
+        items.append(makeItem(item: " item \(items.count + 1) "))
 
         guard let lastItem = items.last else { return }
 
@@ -79,6 +90,12 @@ extension DemoView {
     func removeItem() {
         guard items.last != nil else { return }
         items.removeLast().removeFromSuperview()
+        layout(animated: false)
+    }
+    
+    func removeAll() {
+        items.forEach { $0.removeFromSuperview() }
+        items.removeAll()
         layout(animated: false)
     }
 }

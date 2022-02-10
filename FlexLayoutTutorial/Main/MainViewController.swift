@@ -13,7 +13,6 @@ import Then
 final class MainViewController: BaseViewController<MainView> {
     override init() {
         super.init()
-        
         title = "FlexLayout Tutorial"
     }
     

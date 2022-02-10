@@ -21,17 +21,12 @@ final class PropertyView: UIView {
         scrollView.addSubview(containerView)
 
         containerView.flex.define { (flex) in
-            flex.addItem().height(10)
-            flex.addItem(itemOption)
-            flex.addItem().height(10)
-            flex.addItem(directionOption)
-            flex.addItem().height(10)
-            flex.addItem(justifyContentItemsOption)
-            flex.addItem().height(10)
-            flex.addItem(alignItemsOption)
-            flex.addItem().height(10)
-            flex.addItem(wrapItemsOption)
-            flex.addItem().height(10)
+            flex.addItem(directionOption).marginTop(10)
+            flex.addItem(justifyContentItemsOption).marginTop(10)
+            flex.addItem(alignItemsOption).marginTop(10)
+            flex.addItem(wrapItemsOption).marginTop(10)
+            flex.addItem(alignContentItemsOption).marginTop(10)
+            flex.addItem(layoutDirectionItemsOption).marginTop(10)
         }
 
         bind()
@@ -66,8 +61,11 @@ final class PropertyView: UIView {
     private let justifyContentItemsOption: SwitchOptionView = .init(option: .justifyContent)
 
     private let wrapItemsOption: SwitchOptionView = .init(option: .wrap)
-
-    private let itemOption: StepperOptionView = .init(title: "item", defaultCount: 3)
+    
+    private let alignContentItemsOption: SwitchOptionView = .init(option: .alignContent)
+    
+    private let layoutDirectionItemsOption: SwitchOptionView = .init(option: .layoutDirection)
+    
 }
 
 // MARK: - Private Methods
@@ -126,9 +124,32 @@ extension PropertyView {
 
                 self?.demoView.update(wrap: wrap)
         }).disposed(by: disposeBag)
+        
+        alignContentItemsOption.rx.selectedOptionIndex
+            .subscribe (onNext: { [weak self] index in
+                let alignContent: Flex.AlignContent
+                switch index {
+                case 1: alignContent = .end
+                case 2: alignContent = .center
+                case 3: alignContent = .spaceBetween
+                case 4: alignContent = .spaceAround
+                default: alignContent = .start
+                }
 
-        itemOption.rx.isIncrease.bind { [weak self] in
-            $0 ? self?.demoView.addItem() : self?.demoView.removeItem()
-        }.disposed(by: disposeBag)
+                self?.demoView.update(alignContent: alignContent)
+        }).disposed(by: disposeBag)
+        
+        layoutDirectionItemsOption.rx.selectedOptionIndex
+            .subscribe(onNext: { [weak self] index in
+                let layoutDirection: Flex.LayoutDirection
+                switch index {
+                case 1: layoutDirection = .ltr
+                case 2: layoutDirection = .rtl
+                default: layoutDirection = .inherit
+                }
+                
+                self?.demoView.update(layoutDirection: layoutDirection)
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -140,8 +140,8 @@
 		738F569727ABBDBE00329B1E /* FlexLayoutTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				738F56D227ABC9F500329B1E /* Common */,
 				738F56CE27ABC1F800329B1E /* Main */,
+				738F56D227ABC9F500329B1E /* Common */,
 				738F56D127ABC5D900329B1E /* SupportFiles */,
 			);
 			path = FlexLayoutTutorial;

@@ -20,11 +20,11 @@ final class StepperOptionView: UIView {
         super.init(frame: .zero)
         addSubview(containerView)
 
-        containerView.flex.justifyContent(.start)
+        containerView.flex.direction(.row).justifyContent(.spaceBetween)
             .define { (flex) in
                 flex.addItem(titleLabel)
                 flex.addItem().direction(.row).define { (flex2) in
-                    flex2.addItem(statusLabel).grow(1).shrink(1)
+                    flex2.addItem(statusLabel).marginLeft(10)
                     flex2.addItem(stepper).marginLeft(10)
                 }
             }
@@ -57,12 +57,14 @@ final class StepperOptionView: UIView {
         didSet {
             let previousValue = Int(Double(statusLabel.text ?? "") ?? 0.0)
             isIncrease.onNext(previousValue < Int(currentValue))
-            statusLabel.text = "\(currentValue)"
+            statusLabel.text = "\(Int(currentValue))"
+            statusLabel.flex.markDirty()
+            containerView.flex.layout()
         }
     }
 
     private let titleLabel: UILabel = .init().then {
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = .boldSystemFont(ofSize: 14)
         $0.numberOfLines = 0
         $0.textColor = .black
     }
@@ -83,6 +85,14 @@ final class StepperOptionView: UIView {
     }
 
     fileprivate var isIncrease: PublishSubject<Bool> = .init()
+}
+
+// MARK: - Internal methods
+extension StepperOptionView {
+    func reset() {
+        stepper.value = 0
+        stepper.sendActions(for: .editingChanged)
+    }
 }
 
 // MARK: - Rx Extension
