@@ -191,10 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				738F56CC27ABC11C00329B1E /* BaseViewController.swift */,
-				738F56D327ABCA0400329B1E /* DemoView.swift */,
-				738F56DA27ABEFD500329B1E /* SwitchOptionView.swift */,
-				A2D8AE9B27B3A49B0056190D /* StepperOptionView.swift */,
-				A2DCC0C927B395D5002BA258 /* PropertyView.swift */,
+				A250567327B4F9CA00E4B9D7 /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -210,6 +207,41 @@
 				B0FF4149B2435E6404256D07 /* Pods-FlexLayoutTutorialTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A250567327B4F9CA00E4B9D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A250567527B4F9FB00E4B9D7 /* Demo */,
+				A250567427B4F9EF00E4B9D7 /* Options */,
+				A250567627B4FA0100E4B9D7 /* Property */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A250567427B4F9EF00E4B9D7 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				738F56DA27ABEFD500329B1E /* SwitchOptionView.swift */,
+				A2D8AE9B27B3A49B0056190D /* StepperOptionView.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		A250567527B4F9FB00E4B9D7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				738F56D327ABCA0400329B1E /* DemoView.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		A250567627B4FA0100E4B9D7 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				A2DCC0C927B395D5002BA258 /* PropertyView.swift */,
+			);
+			path = Property;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
