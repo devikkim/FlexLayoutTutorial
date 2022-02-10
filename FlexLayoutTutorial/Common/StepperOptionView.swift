@@ -77,6 +77,8 @@ final class StepperOptionView: UIView {
     fileprivate let stepper: UIStepper = .init().then {
         $0.stepValue = 1
         $0.minimumValue = 0
+        $0.setDecrementImage($0.decrementImage(for: .normal), for: .normal)
+        $0.setIncrementImage($0.incrementImage(for: .normal), for: .normal)
         $0.tintColor = .black
     }
 
